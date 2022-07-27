@@ -119,7 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = 'media/'
+MEDIA_URL = 'southparkpictures/'
 MEDIA_ROOT = BASE_DIR / 'media'  # will create new folder called 'media' with chosen images
 
 # Default primary key field type
