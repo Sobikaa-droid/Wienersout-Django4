@@ -1,61 +1,35 @@
 {% extends 'portfolio/base.html' %}
 <!-- import base.html as a template -->
 
-{% block title %}<title> Home </title>{% endblock %}
+{% block title %}<title> Wienersout </title>{% endblock %}
 
 {% block content %}
 <!-- match the name inside the base.html -->
 
 {% load static %}
-<div class="container text-center">
-  <h1>Some Home Page</h1>
-  <img src="{% static 'portfolio/butterssalute.jpg' %}"><br>
-  <!-- <a href="{% static 'portfolio/butterssalute.jpg'%}">Image Source</a><br> -->
-  <div class="card-group">
-    {% for project in projects %}
-    <div class="card" style="width: 1rem;">
-      <img src="{{ project.image.url }}" class="card-img-top img-fluid mb-2" alt="img-chosen">
+<div class="bd-masthead mb-3" id="content">
+  <div class="container text-center">
+    <img src="{% static 'portfolio/FloweryThirstyCobra-size_restricted.gif' %}"><br>
+    <h1 class="main_home_text mb-3 fw-semibold">My First Portfolio Website on Django</h1>
+    <!-- <a href="{% static 'portfolio/butterssalute.jpg'%}">Image Source</a><br> -->
+  </div>
+</div>
+
+<h2 class="mt-5 title_text fw-semibold">Portfolio</h2>
+<hr>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for project in projects %}
+  <div class="col column_card">
+    <div class="card h-100">
+      <img src="{{ project.image.url }}" class="card_images card-img-top" alt="img-chosen">
       <div class="card-body">
         <h5 class="card-title">{{ project.title }}</h5>
         <p class="card-text">{{ project.description }}</p>
-        {% if project.url %}
-        <a href="{{ project.url }}" class="stretched-link"></a>
-        {% endif %}
       </div>
+      {% if project.url %}
+      <a href="{{ project.url }}" class="stretched-link"></a>
+      {% endif %}
     </div>
-    {% endfor %}
-  </div>
-</div>
-
-<div class="row justify-content-center my-3">
-  <div class="col-5">
-    <img src="{% static 'portfolio/SquareBlonde.jpg' %}" class="img-fluid">
-  </div>
-</div>
-
-<div class="row justify-content-center mb-3">
-  <div class="col-md-9 text-center">
-    <h1 id="hometext" class="font-weight-bold">Nick Walter is Commander-in-Chief at ZappyCode and lives in Downtown Tokyo 😊</h1>
-  </div>
-</div>
-
-<h2 class="mt-5">Portfolio</h2>
-<hr>
-<div class="row">
-  {% for project in projects %}
-  <div class="col-lg-4 col-md-6">
-
-    {% if project.url %}
-    <a href="{{ project.url }}">
-      <img src="{{ project.image.url }}" class="img-fluid mb-2">
-    </a>
-    {% else %}
-
-    <img src="{{ project.image.url }}" class="img-fluid mb-2">
-    {% endif %}
-    <h3>{{ project.title }}</h3>
-    <p>{{ project.description }}</p>
-
   </div>
   {% endfor %}
 </div>
