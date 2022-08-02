@@ -128,3 +128,9 @@ MEDIA_ROOT = BASE_DIR / 'media'  # will create new folder called 'media' with ch
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print('Looks like no local_settings.py was found. You must be on production.')
+
